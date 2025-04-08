@@ -2,7 +2,7 @@ import pandas as pd
 import re
 # Load the dataset with all columns read as strings
 df = pd.read_csv("ebay_tech_deals.csv", dtype=str)
-
+df = df.dropna(subset=['price', 'original_price', 'shipping', 'discount_percentage'])
 # --- Step 1: Clean Price Columns ---
 #this helps in encapsulation, convert_value handles the conversion of a single element,
 # and clean_currency applies that logic to the entire Series.
